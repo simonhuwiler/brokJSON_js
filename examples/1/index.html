@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>brokTEST</title>
+  <script src='./brokjson.js'></script>
+  <style>
+    textarea
+    {
+      display: block;
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <textarea id='geo'>
+
+  </textarea>
+
+  <textarea id='brok'></textarea>
+  <button id='convert'>Convert</button>
+
+  <script>
+
+    brok = {
+  "properties": [
+    "data"
+  ],
+  "geometries": [
+    {
+      "type": "GeometryCollection",
+      "features": [
+        [
+          [
+            {
+              "type": "Point",
+              "features": [
+                [
+                  [
+                    61.34765625,
+                    48.63290858589535
+                  ]
+                ],
+                [
+                  [
+                    61.34765625,
+                    48.63290858589535
+                  ]
+                ]
+              ]
+            },
+            {
+              "type": "Polygon",
+              "features": [
+                [
+                  [
+                    [
+                      [
+                        59.94140624999999,
+                        50.65294336725709
+                      ],
+                      [
+                        59.94140624999999,
+                        50.65294336725709
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            }
+          ],
+          [
+            132
+          ]
+        ]
+      ]
+    }
+  ]
+}
+
+    document.querySelector('#convert').addEventListener('click', () => {
+      console.log("ru")
+      document.querySelector('#geo').value = JSON.stringify(brok2geo(brok))
+    })
+  </script>
+  
+</body>
+</html>
