@@ -1,9 +1,17 @@
 function brok2geo(brok)
 {
   var geo = {
-    type: "FeatureCollection",
-    features: []
+    type: "FeatureCollection"
   }
+
+  // Add unknown properties
+  for(let k in brok)
+  {
+    if(!['properties', 'geometries', 'foreignMembers'].includes(k))
+      geo[k] = brok[k]
+  }
+
+  geo.features = []
 
   for(let i in brok.geometries)
   {
@@ -40,13 +48,11 @@ function brok2geo(brok)
           if(geometry[2][i] !== null && brok.foreignMembers.length >= i)
             feature[brok.foreignMembers[i]] = geometry[2][i]
         }
-
       }
 
       // Check GeometryCollection
       if(geometryCollection.type.toLowerCase() == 'geometrycollection')
       {
-
         new_coords = [];
         for(var c in geometryCollection['features'])
         {
@@ -69,7 +75,6 @@ function brok2geo(brok)
 
           // Add to geometry
           feature['geometry'] = {"type": geometryCollection.type, "geometries": new_coords}
-
         }
       }
       else
