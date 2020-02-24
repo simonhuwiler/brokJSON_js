@@ -1,3 +1,137 @@
+function geo2brok(geo)
+{
+  var globalGeometries = []
+  var globalProperties = []
+  var globalForeignMembers = []
+
+  for(i in geo.features)
+  {
+    const feature = geo.features[i]
+
+    if(feature.type.toLowerCase() != 'feature')
+      continue;
+
+    // Add Properties
+    var props = []
+    if(feature.hasOwnProperty('properties'))
+    {
+      for(propertyKey in feature.properties)
+      {
+        // Check if item in list
+        if(!globalProperties.includes(propertyKey))
+        {
+          // Add to List
+          globalProperties.push(propertyKey)
+        }
+
+        const index = globalProperties.indexOf(propertyKey);
+
+        // Check if props are long enough
+        if(props.length - 1 < index)
+          props.length = index + 1;
+
+        props[index] = feature.properties[propertyKey]
+      }
+    }
+
+    // Add Foreign Members
+    var foreignMembers = []
+    for(item in feature)
+    {
+
+      if(['type', 'properties', 'geometry'].includes(item.toLowerCase()))
+        continue;
+
+      // If key not in global list, add
+      if(!globalForeignMembers.includes(item))
+        globalForeignMembers.push(item)
+
+      const index = globalForeignMembers.indexOf(item);
+
+      // Check if foreignMembers is long enough
+      if(foreignMembers.length - 1 < index)
+        foreignMembers.length = index + 1;
+
+      // Add foreign member
+      foreignMembers[index] = feature[item];
+    }
+
+    // Process Coordinates
+    var coords = null;
+    if(feature.geometry.type.toLowerCase() == "geometrycollection")
+    {
+
+      // Geometry Collection detected
+      coords = []
+
+      for(iGeom in feature.geometry.geometries)
+      {
+        const geom = feature.geometry.geometries[iGeom]
+        // Now check if last item of geometries is same type. If not, add the type
+        if(coords.length == 0 || coords[coords.length - 1].type.toLowerCase() != geom.type.toLowerCase())
+          coords.push({'type': geom.type, 'features': []})
+
+        // Add feature to geometry list
+        coords[coords.length - 1].features.push([geom.coordinates])
+          
+      }
+    }
+    else
+    {
+      // Add Coordinates
+      coords = feature.geometry.coordinates
+    }
+
+    // Create Feature Array
+    var brokFeature = [coords]
+
+    // Add Properties
+    if(props.length > 0)
+      brokFeature.push(props)
+
+    // Add Foreign Members
+    if(foreignMembers.length > 0)
+    {
+      if(brokFeature.length < 2)
+        brokFeature.push(None)
+      
+        brokFeature.push(foreignMembers)
+    }
+
+    // Now check if last item of geometries is same type. If not, add the type
+    if(globalGeometries.length == 0 || globalGeometries[globalGeometries.length - 1].type.toLowerCase() != feature.geometry.type.toLowerCase())
+      globalGeometries.push({'type': feature.geometry.type, 'features': []})
+
+    // Add feature to geometry list
+    globalGeometries[globalGeometries.length - 1].features.push(brokFeature)
+  }
+
+  // Build BrokJSON
+  brok = {}
+
+  // Add Global Properties
+  if(globalProperties.length > 0)
+    brok.properties = globalProperties
+
+  // Add Foreign Members
+  if(globalForeignMembers.length > 0)
+    brok.foreignMembers = globalForeignMembers
+
+  // Add unknown properties
+  for(member in geo)
+  {
+    if(!['type', 'features'].includes(member))
+      brok[member] = geo[member]
+  }
+
+  // Add Geometry
+  if(globalGeometries.length > 0)
+    brok['geometries'] = globalGeometries
+
+  return brok
+
+}
+
 function brok2geo(brok)
 {
   var geo = {
