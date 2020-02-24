@@ -17,7 +17,43 @@
 </head>
 <body>
   <textarea id='geo'>
-
+      {
+        "type": "FeatureCollection",
+        "title": "Hello World",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {
+                    "id": 1,
+                    "title": "Datapoint 1",
+                    "value": 343
+                },
+                "content": "Inhalt",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        8.5402,
+                        47.3782
+                    ]
+                }
+            },
+            {
+                "type": "Feature",
+                "properties": {
+                    "id": 1,
+                    "title": "Datapoint 2",
+                    "value": 14
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        8.5637,
+                        47.4504
+                    ]
+                }
+            }
+        ]
+    }
   </textarea>
 
   <textarea id='brok'></textarea>
@@ -25,65 +61,13 @@
 
   <script>
 
-    brok = {
-  "properties": [
-    "data"
-  ],
-  "geometries": [
-    {
-      "type": "GeometryCollection",
-      "features": [
-        [
-          [
-            {
-              "type": "Point",
-              "features": [
-                [
-                  [
-                    61.34765625,
-                    48.63290858589535
-                  ]
-                ],
-                [
-                  [
-                    61.34765625,
-                    48.63290858589535
-                  ]
-                ]
-              ]
-            },
-            {
-              "type": "Polygon",
-              "features": [
-                [
-                  [
-                    [
-                      [
-                        59.94140624999999,
-                        50.65294336725709
-                      ],
-                      [
-                        59.94140624999999,
-                        50.65294336725709
-                      ]
-                    ]
-                  ]
-                ]
-              ]
-            }
-          ],
-          [
-            132
-          ]
-        ]
-      ]
-    }
-  ]
-}
 
     document.querySelector('#convert').addEventListener('click', () => {
-      console.log("ru")
-      document.querySelector('#geo').value = JSON.stringify(brok2geo(brok))
+      // var brok = JSON.parse(document.getElementById('brok').value)
+      var geo = JSON.parse(document.getElementById('geo').value)
+      console.log(geo)
+      document.querySelector('#brok').value = JSON.stringify(geo2brok(geo))
+      // document.querySelector('#geo').value = JSON.stringify(brok2geo(brok))
     })
   </script>
   
