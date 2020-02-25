@@ -1,7 +1,9 @@
-# brokJSON
+# BrokJSON
 Ever struggled with huge GeoJSON-Files? BrokJSON is your space-saving alternative! It is based on the same logic as GeoJSON but reduces redundancy. Convert freely between GeoJSON and BrokJSON **withouth losing data**.  
+  
 The idea behind BrokJSON: **RAM is mightier than the bandwight**. Reduce the filesize of your data and convert on runtime to GeoJSON.
 
+## Example
 This **GeoJSON** with just two Points...
 ```json
 {
@@ -82,7 +84,7 @@ var geojson = {
   }]
 }
 
-// Convert your Josn-Object to BrokJson
+// Convert your Json-Object to BrokJson
 const brokjson = brok.geo2brok(geojson);
 
 // "brokjson" is your BrokJSON as a javascript object
@@ -110,7 +112,7 @@ console.log(geojson)
     }]
   }
 
-  // Convert your Josn-Object to BrokJson
+  // Convert your Json-Object to BrokJson
   const brokjson = brok.geo2brok(geojson);
 
   // "brokjson" is your BrokJSON as a javascript object
@@ -135,7 +137,7 @@ geo2brok(geoJsonObject)
 **Return value**  
 `BrokJSON` as a `Javascript-Object`
 
-### GeoJSON to BrokJSON
+### BrokJSON to GeoJSON
 ```js
 brok2geo(brokJsonObject)
 ```
