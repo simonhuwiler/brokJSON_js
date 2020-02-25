@@ -1,7 +1,7 @@
 # BrokJSON
-Ever struggled with huge GeoJSON-Files? BrokJSON is your space-saving alternative! It is based on the same logic as GeoJSON but reduces redundancy. Convert freely between GeoJSON and BrokJSON **withouth losing any data**.  
+Ever struggled with huge GeoJSON-Files? BrokJSON is your space-saving alternative! Depending on your data you can save up to 80%. **Withouth losing any data!** Why? Because it uses the same ideas as GeoJSON.
   
-The idea behind BrokJSON: **RAM is mightier than the bandwidth**. Reduce the filesize of your data and convert on runtime to GeoJSON.
+The idea behind BrokJSON: **RAM is mightier than the bandwidth** - download the small BrokJSON and convert it on runtime to GeoJSON than loading a huge GeoJSON.
 
 ## Example
 This **GeoJSON** with just two Points...
