@@ -95,7 +95,6 @@ module.exports.brok2geo = brok => {
 
   return geo;
 }
-
 module.exports.geo2brok = geo => {
   var globalGeometries = []
   var globalProperties = []
@@ -204,7 +203,7 @@ module.exports.geo2brok = geo => {
   }
 
   // Build BrokJSON
-  brok = {}
+  var brok = {}
 
   // Add Global Properties
   if(globalProperties.length > 0)
