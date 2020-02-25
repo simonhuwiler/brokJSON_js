@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>brokTEST</title>
-  <script src='./brokjson.js'></script>
+  <script src='../../bundle.js'></script>
   <style>
     textarea
     {
@@ -65,7 +65,8 @@
     document.querySelector('#convert').addEventListener('click', () => {
       // var brok = JSON.parse(document.getElementById('brok').value)
       var geo = JSON.parse(document.getElementById('geo').value)
-      console.log(geo)
+      console.log(brok.geo2brok(geo))
+
       document.querySelector('#brok').value = JSON.stringify(geo2brok(geo))
       // document.querySelector('#geo').value = JSON.stringify(brok2geo(brok))
     })
