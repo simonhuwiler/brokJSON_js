@@ -1,7 +1,7 @@
 # BrokJSON
-Ever struggled with huge GeoJSON-Files? BrokJSON is your space-saving alternative! It is based on the same logic as GeoJSON but reduces redundancy. Convert freely between GeoJSON and BrokJSON **withouth losing data**.  
+Ever struggled with huge GeoJSON-Files? BrokJSON is your space-saving alternative! It is based on the same logic as GeoJSON but reduces redundancy. Convert freely between GeoJSON and BrokJSON **withouth losing any data**.  
   
-The idea behind BrokJSON: **RAM is mightier than the bandwight**. Reduce the filesize of your data and convert on runtime to GeoJSON.
+The idea behind BrokJSON: **RAM is mightier than the bandwidth**. Reduce the filesize of your data and convert on runtime to GeoJSON.
 
 ## Example
 This **GeoJSON** with just two Points...
@@ -148,4 +148,4 @@ brok2geo(brokJsonObject)
 `GeoJSON` as a `Javascript-Object`
 
 ## Full Spec and other languages
-*Work in progress*
+*Coming soon*
