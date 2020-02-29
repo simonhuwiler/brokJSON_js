@@ -1,7 +1,9 @@
 # BrokJSON
-Ever struggled with huge GeoJSON-Files? BrokJSON is your space-saving alternative! Depending on your data you can save up to 80%. **Withouth losing any data!** Why? Because it uses the same ideas as GeoJSON.
+Ever struggled with huge GeoJSON-Files? BrokJSON is your space-saving alternative! Depending on your data you can save up to 80%. **Withouth losing any data!** Why? Because it is based on the same ideas as GeoJSON but reduces redundancies.
   
-The idea behind BrokJSON: **RAM is mightier than the bandwidth** - download the small BrokJSON and convert it on runtime to GeoJSON than loading a huge GeoJSON.
+The idea behind BrokJSON: **RAM is mightier than the bandwidth** - download the small BrokJSON and convert it on runtime to GeoJSON than loading a huge GeoJSON.  
+
+Have a look at https://www.brokjson.dev!
 
 ## Example
 This **GeoJSON** with just two Points...
@@ -69,7 +71,7 @@ Add it to your Website
 ### Node
 ```js
 // Include BrokJSON
-brok = require('./src/index.js')
+brok = require('brokjson')
 
 // Load your GeoJSON
 var geojson = {
@@ -148,4 +150,4 @@ brok2geo(brokJsonObject)
 `GeoJSON` as a `Javascript-Object`
 
 ## Full Spec and other languages
-*Coming soon*
+Have a look at https://www.brokjson.dev

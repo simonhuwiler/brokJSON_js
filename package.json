@@ -1,7 +1,7 @@
 {
   "name": "brokjson",
-  "version": "0.0.2",
-  "description": "Node module to convert GeoJSON to BrokJSON and vice versa",
+  "version": "0.0.3",
+  "description": "BrokJSON is a space-saving alternative to GeoJSON. Convert GeoJSON to BrokJSON and vice versa",
   "main": "./src/index.js",
   "scripts": {
     "build": "node ./scripts/bundle.js"
