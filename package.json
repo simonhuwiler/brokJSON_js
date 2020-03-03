@@ -1,6 +1,6 @@
 {
   "name": "brokjson",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "BrokJSON is a space-saving alternative to GeoJSON. Convert GeoJSON to BrokJSON and vice versa",
   "main": "./src/index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/simonhuwiler/brokJSON_js/issues"
   },
-  "homepage": "https://github.com/simonhuwiler/brokJSON_js#readme",
+  "homepage": "https://www.brokjson.dev",
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/plugin-transform-arrow-functions": "^7.8.3",
