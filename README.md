@@ -3,7 +3,7 @@ Ever struggled with huge GeoJSON-Files? BrokJSON is your space-saving alternativ
   
 The idea behind BrokJSON: **RAM is mightier than the bandwidth** - download the small BrokJSON and convert it on runtime to GeoJSON than loading a huge GeoJSON.  
 
-Have a look at https://www.brokjson.dev!
+Have a look at https://simonhuwiler.github.io/brokJSON/
 
 ## Example
 This **GeoJSON** with just two Points...
